@@ -1,0 +1,56 @@
+.techfonts
+{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postdate
+{
+  text-align: center;
+}
+
+.posttitle
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+.postcontent
+{
+  font-family:'Montserrat';
+  font-size:1.5em;
+}
+
+.btn-comment
+{
+  text-align: center;
+}
+
+.nodec
+{
+  text-decoration: none;
+}
+
+.mysize
+{
+      width: 38px;
+}
+
+.image
+{
+  width: 37px;
+  margin-left: 768px;
+}
+
+
+.space
+{
+  padding: 30px;
+}

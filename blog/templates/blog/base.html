@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  </head>
+  <body>
+
+      <nav class="navbar navbar-default techfonts custom-navbar navbar-static-top">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'post_list'%}">My Blog</a>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="navbar-brand" href="{% url 'about'%}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="navbar-brand" href="http://www.github.com">GitHub</a>
+                </li>
+                <li class="nav-item">
+                  <a class="navbar-brand" href="http://www.linkedin.com">LinkedIn</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li>
+                  <a class='space' href="{% url 'post_new' %}">New Post</a>
+                </li>
+                <li>
+                  <a class='space' href="{% url 'post_draft_list' %}">Drafts</a>
+                </li>
+                <li>
+                  <a class='space' href="{% url 'logout' %}">Log Out</a>
+                </li>
+                <li>
+                  <a class='space'>Welcome:{{user.username}}</a>
+                </li>
+                <li>
+                  {% else %}
+                  <li><a href="{% url 'login' %}"><img class="image" src="{% static 'images/download.png' alt='image'%}"></a></li>
+                  {% endif %}
+                </li>
+              </ul>
+            </nav>
+        </nav>
+        <div class="content container">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="blog_posts">
+                {% block content %}
+                {% endblock %}
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="{% static 'js/blog.js' %}">
+
+        </script>
+  </body>
+</html>
